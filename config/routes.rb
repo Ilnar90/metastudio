@@ -1,7 +1,8 @@
 Metastudio::Application.routes.draw do
 
+  
+  get 'persons/profile', as: 'user_root'
   devise_for :users
-
   root :to => 'static_pages#home'
   
   # The priority is based upon order of creation:
@@ -19,7 +20,7 @@ Metastudio::Application.routes.draw do
   #   resources :products
 
   # Sample resource route with options:
-  #   resources :products do
+  #   resources :products do 
   #     member do
   #       get 'short'
   #       post 'toggle'
