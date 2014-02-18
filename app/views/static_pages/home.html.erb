@@ -1,14 +1,20 @@
 <div class="center hero-unit">
-    <h1>Welcome to the Bulat App</h1>
-
+  <h1>Welcome to the Bulat App</h1>
     <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
       sample application.
     </h2>
+    <%= link_to "Sign up now!", root_path, class: "btn btn-large btn-primary" %>
+</div>
 
-    <%= link_to "Sign up now!", root_path,
-                                class: "btn btn-large btn-primary" %>
-  </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<div class="span8">
+  <% if @user.microposts.any? %>
+    <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    <ol class="microposts">
+      <%= render @microposts %>
+    </ol>
+    <%= will_paginate @microposts %>
+  <% end %>
+</div>
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
