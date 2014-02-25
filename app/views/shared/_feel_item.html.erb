@@ -1,0 +1,9 @@
+<li id="<%= feel_item.id %>">
+  <%= gravatar_for(feel_item.user) %>
+  <h5><%= feel_item.user.email %></h5>
+  <span class="content"><%= feel_item.title %></span>
+  <span class="content"><%= wrap(feel_item.content) %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(feel_item.created_at) %> ago.
+  </span>
+</li>

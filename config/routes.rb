@@ -1,10 +1,10 @@
 Metastudio::Application.routes.draw do
 
   
-  get 'persons/profile', as: 'user_root'
+ get 'users/show', as: 'user_root'
   devise_for :users
+  resources :microposts 
   root :to => 'static_pages#home'
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

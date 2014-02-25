@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/edgarjs/ajaxful-rating.git
+  revision: f22e2c38d601f8279e959fbe9a578b2314235505
+  branch: rails3
+  specs:
+    ajaxful_rating (3.0.0.beta8)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 7383e60f375a5e37f60f8f3a29d17734b3185b83
   specs:
@@ -132,11 +139,13 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ajaxful_rating!
   bootstrap-sass (= 2.1)
   coffee-rails (~> 3.2.1)
   devise (~> 3.2.2)
@@ -148,3 +157,4 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0.4)
