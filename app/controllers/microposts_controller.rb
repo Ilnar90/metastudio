@@ -30,6 +30,13 @@ class MicropostsController < ApplicationController
    end
   end
 
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @micropst = Micropost.find(params[:id])
+    @micropst.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting!"
+  end
+
   def destroy
     @micropost = Micropost.find(params[:id])
     @micropost.destroy

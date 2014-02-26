@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+  	@haikus = Micropost.find_with_reputation(:votes, :all, order: 'votes desc')
     @fedor = Micropost.all
     @user = current_user
     if user_signed_in?

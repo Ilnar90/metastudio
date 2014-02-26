@@ -5,4 +5,5 @@ class Micropost < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 70 }
   validates :content, presence: true, length: { maximum: 500 }
   validates :user_id, presence: true
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

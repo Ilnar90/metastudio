@@ -19,7 +19,7 @@ group :assets do
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
   gem 'bootstrap-sass', '2.1'
   gem "will_paginate", "~> 3.0.4"
-  gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :branch => "rails3"
+  gem 'activerecord-reputation-system', require: 'reputation_system'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
