@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-   
+  before_filter :user_signed_in?, only: [:create, :destroy]
   include MicropostsHelper
   
   def index
@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
       flash[:success] = "Micropost created"
-      redirect_to user_root_path
+      redirect_to root_path
     else
       @feed_items = []
       render 'static_pages/home'  
@@ -33,6 +33,6 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost = Micropost.find(params[:id])
     @micropost.destroy
-    redirect_to user_root_path
+    redirect_to root_url
   end
 end
