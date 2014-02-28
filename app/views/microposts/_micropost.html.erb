@@ -1,7 +1,10 @@
 <li>
-  <span class="content"><%= micropost.title %></span>
+  <span class="content"><%= micropost.title %></an>
   <span class="content"><%= wrap(micropost.content) %></span>
   <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span>
+  <em>
+     <%= pluralize micropost.reputation_for(:votes).to_i, "like" %>
+  </em>
   <div><%= link_to "Редактирование", edit_micropost_path(micropost) %></div>
   <div><%= link_to "Удаление", micropost, method: :delete, data: { confirm: "Вы уверены?" } %></div>
 </li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226134461) do
+ActiveRecord::Schema.define(:version => 20140226134455) do
 
   create_table "microposts", :force => true do |t|
     t.string   "title"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20140226134461) do
     t.datetime "updated_at",                       :null => false
   end
 
-  add_index "rs_evaluations", ["reputation_name", "source_id", "source_type", "target_id", "target_type"], :name => "index_rs_evaluations_on_reputation_name_and_source_and_target", :unique => true
   add_index "rs_evaluations", ["reputation_name"], :name => "index_rs_evaluations_on_reputation_name"
   add_index "rs_evaluations", ["source_id", "source_type"], :name => "index_rs_evaluations_on_source_id_and_source_type"
   add_index "rs_evaluations", ["target_id", "target_type"], :name => "index_rs_evaluations_on_target_id_and_target_type"
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20140226134461) do
     t.datetime "updated_at",                   :null => false
   end
 
-  add_index "rs_reputation_messages", ["receiver_id", "sender_id", "sender_type"], :name => "index_rs_reputation_messages_on_receiver_id_and_sender", :unique => true
   add_index "rs_reputation_messages", ["receiver_id"], :name => "index_rs_reputation_messages_on_receiver_id"
   add_index "rs_reputation_messages", ["sender_id", "sender_type"], :name => "index_rs_reputation_messages_on_sender_id_and_sender_type"
 
@@ -63,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20140226134461) do
     t.datetime "updated_at",                        :null => false
   end
 
-  add_index "rs_reputations", ["reputation_name", "target_id", "target_type"], :name => "index_rs_reputations_on_reputation_name_and_target", :unique => true
   add_index "rs_reputations", ["reputation_name"], :name => "index_rs_reputations_on_reputation_name"
   add_index "rs_reputations", ["target_id", "target_type"], :name => "index_rs_reputations_on_target_id_and_target_type"
 
