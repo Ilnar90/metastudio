@@ -1,10 +1,11 @@
 class MicropostsController < ApplicationController
   before_filter :user_signed_in?, only: [:create, :destroy]
+  respond_to :html, :json
   include MicropostsHelper
-  
+
   def index
   end
-  
+
   def create
     @micropost = current_user.microposts.build(params[:micropost])
     respond_to do |format|
@@ -13,7 +14,7 @@ class MicropostsController < ApplicationController
         format.js
       else
         format.html { render 'static_pages/home' }
-      end  
+      end
     end
   end
 
@@ -23,7 +24,7 @@ class MicropostsController < ApplicationController
 
   def update
     @micropost = Micropost.find(params[:id])
- 
+
    if @micropost.update_attributes(params[:micropost])
     redirect_to user_root_path
    else
@@ -33,9 +34,10 @@ class MicropostsController < ApplicationController
 
   def vote
     value = params[:type] == "up" ? 1 : -1
-    @micropst = Micropost.find(params[:id])
-    @micropst.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting!"
+    @micropost = Micropost.find(params[:id])
+    @micropost.add_or_update_evaluation(:votes, value, current_user)
+    @count_votes = { count: @micropost.reputations.map(&:value).sum }
+    render json: @count_votes
   end
 
   def destroy
