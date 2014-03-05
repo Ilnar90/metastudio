@@ -4,12 +4,17 @@
 $ ->
   $('.microposts li').on 'click', 'a', (event)->
     event.preventDefault()
+    votesCount = $(@).parent().parent().find('.votes-count')
+
+    changeCount = (data) ->
+      votesCount.html(data.count + ' like')
+      return
+
     $.ajax
       type: "POST"
       dataType: 'json'
       url: $(@).attr('href')
       data: { type: 'up' }
-      success: (data)->
-        $('.votes-count').html(data.count + ' like')
+      success: changeCount
 
     return false
