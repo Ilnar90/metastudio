@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @fedor = Micropost.all
+    @view_1 = Micropost.by_votes
     @user = current_user
     if user_signed_in?
       @microposts = @user.microposts.paginate(page: params[:page])
