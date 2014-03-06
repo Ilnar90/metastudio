@@ -9,8 +9,8 @@
   </em>
   <% if user_signed_in? && current_user == feed_item.user %>
     <div><%= link_to "Редактирование", edit_micropost_path(feed_item) %></div>
-    <div><%= link_to "Удаление", feed_item, method: :delete, data: { confirm: "Вы уверены?" }, remote: true %></div>
+    <div><%= link_to "Удаление", feed_item, method: :delete, data: { confirm: "Вы уверены?" } %></div>
   <% else %>
-    <div><%= link_to "like", vote_micropost_path(feed_item, type: "up"), method: "post" %></div>
+    <div><%= link_to "like", vote_micropost_path(feed_item, type: "up"), class: 'myClass', method: "post" %></div>
   <% end %>
 </li>
